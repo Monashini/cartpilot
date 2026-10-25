@@ -1,0 +1,17 @@
+{
+  "name": "cartpilot",
+  "version": "1.0.0",
+  "description": "CartPilot - an AI shopping agent that shops for you and pays with PayPal, inside a spending limit you set.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2"
+  }
+}

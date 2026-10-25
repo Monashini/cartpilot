@@ -1,0 +1,6 @@
+node_modules/
+.env
+*.log
+gemini-usage.json
+# Personal submission checklist, kept off GitHub
+SUBMISSION.md

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CartPilot — AI shopping agent with PayPal</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="logo">✈︎</span> CartPilot</div>
+    <div class="tagline">Tell it what you need. It shops. <b>You approve with PayPal.</b></div>
+    <div id="modeBadge" class="badge"></div>
+  </header>
+
+  <main class="layout">
+    <section class="chat card">
+      <div id="messages" class="messages" aria-live="polite"></div>
+      <div class="chips" id="chips">
+        <button>Birthday gift for my sister who loves reading, under $40</button>
+        <button>Set up a study desk for a student, budget $80</button>
+        <button>Coffee lover gift under $50</button>
+        <button>Home workout starter kit within $45</button>
+      </div>
+      <form id="chatForm" class="composer">
+        <input id="chatInput" autocomplete="off" placeholder="e.g. A cozy gift for my mom under $35" maxlength="1000" />
+        <button type="submit" id="sendBtn">Send</button>
+      </form>
+    </section>
+
+    <aside class="side">
+      <div class="card">
+        <h2>Spending limit</h2>
+        <p class="hint">The agent can never go over this. PayPal orders are re-checked on the server.</p>
+        <div class="budget-row">
+          <span>$</span><input id="budgetInput" type="number" min="1" max="10000" step="1" value="50" />
+          <button id="budgetBtn" class="ghost">Set</button>
+        </div>
+        <div class="meter"><div id="meterFill"></div></div>
+        <div class="meter-label"><span id="spentLabel">$0.00 used</span><span id="remainLabel">$50.00 left</span></div>
+      </div>
+
+      <div class="card">
+        <h2>Cart</h2>
+        <ul id="cartList" class="cart"></ul>
+        <div class="total"><span>Total</span><b id="cartTotal">$0.00</b></div>
+        <div id="checkout" class="checkout hidden">
+          <p class="hint">Review the cart, then approve. The agent cannot pay without you.</p>
+          <div id="paypal-buttons"></div>
+          <button id="mockPay" class="paypal-mock hidden">Pay with PayPal (demo mode)</button>
+        </div>
+        <p id="overBudget" class="hint over hidden">This cart is over your spending limit. Remove something or raise the limit to check out.</p>
+        <div id="savedWrap" class="saved hidden">
+          <h3>♡ Wishlist</h3>
+          <ul id="savedList" class="cart"></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Agent activity</h2>
+        <ol id="trace" class="trace"><li class="muted">Actions the agent takes will show up here.</li></ol>
+      </div>
+
+      <div id="receipt" class="card receipt hidden"></div>
+
+      <div class="card">
+        <h2>Your orders</h2>
+        <ul id="orderList" class="orders"><li class="muted">Orders you pay for with PayPal show up here.</li></ul>
+      </div>
+    </aside>
+  </main>
+  <footer class="foot">Sandbox demo. No real money moves. Built for the PayPal AI Hackathon 2026.</footer>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
